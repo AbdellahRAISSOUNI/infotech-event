@@ -119,10 +119,10 @@ const Terrain = () => {
 // Digital Binary Stream
 const BinaryStream = () => {
   const groupRef = useRef<THREE.Group>(null);
-  const streams = Array(10).fill(0).map((_, i) => ({
-    position: [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 15],
+  const streams = Array(10).fill(0).map((_unused) => ({
+    position: [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 15] as [number, number, number],
     speed: 0.2 + Math.random() * 0.5,
-    rotation: [Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI]
+    rotation: [Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI] as [number, number, number]
   }));
   
   useFrame(({ clock }) => {
@@ -133,8 +133,8 @@ const BinaryStream = () => {
   
   return (
     <group ref={groupRef}>
-      {streams.map((stream, i) => (
-        <mesh key={i} position={stream.position} rotation={stream.rotation}>
+      {streams.map((stream, index) => (
+        <mesh key={index} position={stream.position} rotation={stream.rotation}>
           <boxGeometry args={[0.2, 10, 0.2]} />
           <meshBasicMaterial color="#00ff41" transparent opacity={0.4} />
         </mesh>

@@ -8,7 +8,6 @@ import Countdown from '@/components/Countdown';
 import LogoReveal from '@/components/LogoReveal';
 import TerminalEffect from '@/components/TerminalEffect';
 import InfoTechLogo from '@/components/InfoTechLogo';
-import Image from 'next/image';
 
 // Dynamically import the heavy components to improve initial load performance
 const GlitchBackground = dynamic(() => import('@/components/GlitchBackground'), {
@@ -35,7 +34,7 @@ export default function Home() {
     // Uncomment to skip animation sequence and show countdown immediately
     // setIsLoading(false);
     // setHackingStage(3);
-  }, []);
+  }, [eventDate]);
 
   // Track scroll position for parallax effects
   useEffect(() => {

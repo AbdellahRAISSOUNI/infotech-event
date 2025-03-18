@@ -176,8 +176,8 @@ const LogoReveal: React.FC<LogoRevealProps> = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {Array.from({ length: 20 }).map((_, i) => (
-            <span key={i} className="mr-3">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <span key={index} className="mr-3">
               {Math.random() > 0.5 ? '1' : '0'}
               {Math.random() > 0.5 ? '1' : '0'}
               {Math.random() > 0.5 ? '1' : '0'}

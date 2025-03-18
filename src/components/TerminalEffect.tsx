@@ -15,23 +15,6 @@ const TerminalEffect: React.FC<TerminalEffectProps> = ({
   const [isTyping, setIsTyping] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Commands to display
-  const commands = [
-    'ping system.infotech.edu',
-    'nmap -sS system.infotech.edu',
-    'ssh admin@infotech.edu',
-    'cd /var/www/html',
-    'sudo chmod 755 countdown.sh',
-    './countdown.sh --start',
-    'cat /etc/passwd',
-    'sudo service apache2 restart',
-    'git clone https://github.com/infotech/event.git',
-    'npm run build',
-    'access_code --decrypt 26042024',
-    'mv payload.exe /usr/bin/',
-    './execute --force',
-  ];
-  
   // Response for commands
   const getCommandResponse = (cmd: string): string => {
     if (cmd.includes('ping')) return 'PING successful: 4 packets transmitted, 4 received, 0% packet loss';
@@ -52,6 +35,23 @@ const TerminalEffect: React.FC<TerminalEffectProps> = ({
   
   // Simulate typing and executing commands
   useEffect(() => {
+    // Commands to display
+    const commands = [
+      'ping system.infotech.edu',
+      'nmap -sS system.infotech.edu',
+      'ssh admin@infotech.edu',
+      'cd /var/www/html',
+      'sudo chmod 755 countdown.sh',
+      './countdown.sh --start',
+      'cat /etc/passwd',
+      'sudo service apache2 restart',
+      'git clone https://github.com/infotech/event.git',
+      'npm run build',
+      'access_code --decrypt 26042024',
+      'mv payload.exe /usr/bin/',
+      './execute --force',
+    ];
+    
     const executeRandomCommand = () => {
       setIsTyping(true);
       const randomCommand = commands[Math.floor(Math.random() * commands.length)];
