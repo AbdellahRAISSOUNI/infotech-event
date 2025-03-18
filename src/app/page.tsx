@@ -123,7 +123,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="w-full max-w-md h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <div className="text-gray-500">University Campus Image</div>
+                <div className="text-gray-500">Infotech Is Cooking Something Special ...</div>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-white text-gray-800 opacity-90">
           <header className="bg-blue-600 text-white shadow-md">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-              <div className="text-2xl font-bold glitch" data-text="InfoTech University">InfoTech University</div>
+              <div className="text-2xl font-bold glitch" data-text="InfoTech University">InfoTech Ensa Tetouan</div>
               <nav className="hidden md:flex space-x-6">
                 <a href="#" className="hover:underline">Home</a>
                 <a href="#" className="hover:underline">About</a>
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
               <div className="md:w-1/2 flex justify-center">
                 <div className="w-full max-w-md h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                  <div className="text-gray-500">University Campus Image</div>
+                  <div className="text-gray-500">Infotech Is Cooking Something Special ...</div>
                 </div>
               </div>
             </div>
