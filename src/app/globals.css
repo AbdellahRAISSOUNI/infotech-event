@@ -1,8 +1,15 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000c05;
+  --foreground: #e4ffe4;
+  --accent: #00ff41;
+  --secondary: #008f11;
+  --glitch-1: #00ff41;
+  --glitch-2: #49ff00;
+  --terminal-green: #00ff41;
+  --matrix-dark: #003b00;
 }
 
 @theme inline {
@@ -22,5 +29,451 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Space Mono', monospace;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(45% 0 56% 0);
+  }
+  5% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(33% 0 43% 0);
+  }
+  10% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(38% 0 59% 0);
+  }
+  15% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(22% 0 59% 0);
+  }
+  20% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(9% 0 38% 0);
+  }
+  25% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(47% 0 6% 0);
+  }
+  30% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(64% 0 24% 0);
+  }
+  35% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(96% 0 1% 0);
+  }
+  40% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(70% 0 31% 0);
+  }
+  45% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(58% 0 9% 0);
+  }
+  50% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(9% 0 98% 0);
+  }
+  55% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(11% 0 34% 0);
+  }
+  60% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(37% 0 18% 0);
+  }
+  65% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(72% 0 5% 0);
+  }
+  70% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(23% 0 73% 0);
+  }
+  75% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(89% 0 4% 0);
+  }
+  80% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(7% 0 43% 0);
+  }
+  85% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(35% 0 69% 0);
+  }
+  90% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(6% 0 83% 0);
+  }
+  95% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(95% 0 5% 0);
+  }
+  100% {
+    text-shadow: 2px 0 0 var(--glitch-1), -2px 0 0 var(--glitch-2);
+    clip-path: inset(100% 0 0% 0);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  31% { opacity: 1; }
+  32% { opacity: 0.8; }
+  33% { opacity: 1; }
+  42% { opacity: 1; }
+  43% { opacity: 0.4; }
+  45% { opacity: 1; }
+  73% { opacity: 1; }
+  74% { opacity: 0.8; }
+  75% { opacity: 1; }
+}
+
+.glitch {
+  position: relative;
+  animation: flicker 5s infinite step-end;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch 1s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  text-shadow: -1.5px -1.5px 0 var(--glitch-1);
+}
+
+.glitch::after {
+  animation: glitch 750ms infinite;
+  clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+  text-shadow: 1.5px 1.5px 0 var(--glitch-2);
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 255, 65, 0.15);
+  opacity: 0.75;
+  animation: scanline 4s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/png;base64,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");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--terminal-green), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+  padding: 1rem;
+}
+
+/* Pulsing outline for the entire countdown */
+.countdown-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  border-radius: 10px;
+  animation: pulseOutline 3s infinite;
+  z-index: -1;
+}
+
+@keyframes pulseOutline {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 20, 0, 0.8);
+  padding: 1.8rem 1.2rem;
+  border-radius: 0.5rem;
+  min-width: 8rem;
+  border: 3px solid rgba(0, 255, 65, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 35px rgba(0, 255, 65, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px rgba(0, 255, 65, 0.6);
+  border-color: rgba(0, 255, 65, 0.8);
+}
+
+.countdown-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.8), transparent);
+  animation: glowScan 3s linear infinite;
+}
+
+.countdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.8), transparent);
+  animation: glowScan 3s linear infinite reverse;
+}
+
+/* Add corner accents to the countdown items */
+.countdown-item .corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(0, 255, 65, 0.8);
+  opacity: 0.8;
+}
+
+.countdown-item .corner-top-left {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.countdown-item .corner-top-right {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.countdown-item .corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.countdown-item .corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+@keyframes glowScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.countdown-number {
+  font-size: 5.5rem;
+  font-weight: bold;
+  color: var(--terminal-green);
+  font-family: 'VT323', 'Space Mono', monospace;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px var(--terminal-green), 0 0 40px rgba(0, 255, 65, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+.countdown-label {
+  font-size: 1.6rem;
+  color: rgba(0, 255, 65, 1);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-top: 0.8rem;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+}
+
+/* Custom animation classes */
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 1s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.terminal-text {
+  font-family: 'VT323', 'Space Mono', monospace;
+  color: var(--terminal-green);
+}
+
+/* Matrix-like scanline effect */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 255, 65, 0.15);
+  opacity: 0.75;
+  animation: scanline 4s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+/* Creating a CRT monitor effect */
+.crt-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 10, 2, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%), 
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.3;
+}
+
+/* Matrix digital rain animation */
+.matrix-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.matrix-code {
+  position: absolute;
+  color: #00ff41;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  top: 0;
+  animation: matrix-rain linear infinite;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+}
+
+/* Typing effect */
+.typing-effect {
+  border-right: 2px solid rgba(0, 255, 65, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(0, 255, 65, 0.75) }
+}
+
+/* Style font classes */
+.font-vt323 {
+  font-family: var(--font-vt323), 'VT323', monospace;
 }
