@@ -89,7 +89,7 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="text-center"
         >
-          <div className="text-gray-800 text-xl font-bold mb-4">InfoTech University</div>
+          <div className="text-gray-800 text-xl font-bold mb-4">InfoTech Ensa Tetouan</div>
           <div className="w-16 h-16 border-4 border-t-blue-500 border-b-blue-500 border-l-transparent border-r-transparent rounded-full animate-spin mx-auto"></div>
           <div className="mt-4 text-gray-600">Loading website...</div>
         </motion.div>
@@ -103,7 +103,7 @@ export default function Home() {
       <div className="min-h-screen bg-white text-gray-800">
         <header className="bg-blue-600 text-white shadow-md">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="text-2xl font-bold">InfoTech University</div>
+            <div className="text-2xl font-bold">InfoTech Ensa Tetouan</div>
             <nav className="hidden md:flex space-x-6">
               <a href="#" className="hover:underline">Home</a>
               <a href="#" className="hover:underline">About</a>
@@ -117,7 +117,7 @@ export default function Home() {
         <main className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl font-bold mb-4">Welcome to InfoTech University</h1>
+              <h1 className="text-4xl font-bold mb-4">Welcome to InfoTech Ensa Tetouan</h1>
               <p className="text-gray-600 mb-6">Learn, innovate, and shape the future of technology with our cutting-edge programs and world-class faculty.</p>
               <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</button>
             </div>
@@ -154,7 +154,7 @@ export default function Home() {
           <main className="container mx-auto px-4 py-12">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <h1 className="text-4xl font-bold mb-4 glitch" data-text="Welcome to InfoTech University">Welcome to InfoTech University</h1>
+                <h1 className="text-4xl font-bold mb-4 glitch" data-text="Welcome to InfoTech Ensa Tetouan">Welcome to InfoTech Ensa Tetouan</h1>
                 <p className="text-gray-600 mb-6">Learn, innovate, and shape the future of technology with our cutting-edge programs and world-class faculty.</p>
                 <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</button>
               </div>

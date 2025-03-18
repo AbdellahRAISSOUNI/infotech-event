@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "InfoTech Event - The Future Awaits",
   description: "A special guest is coming. Prepare for a revolutionary tech event by InfoTech.",
   keywords: ["InfoTech", "event", "technology", "future", "tech", "guest"],
-  authors: [{ name: "InfoTech University Club" }],
+  authors: [{ name: "InfoTech Club Ensa Tetouan" }],
   openGraph: {
     title: "InfoTech Event - The Future Awaits",
     description: "A special guest is coming. Prepare for a revolutionary tech event by InfoTech.",
