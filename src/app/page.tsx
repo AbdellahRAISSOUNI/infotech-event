@@ -20,9 +20,9 @@ export default function Home() {
   const [hackingStage, setHackingStage] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   
-  // Event date - April 26, 2025
+  // Event date - April 12, 2025
   // Using explicit date constructor to avoid timezone issues
-  const eventDate = new Date(2025, 3, 26, 0, 0, 0);
+  const eventDate = new Date(2025, 4, 12, 0, 0, 0);
   
   // For debugging and to ensure the date is correct
   useEffect(() => {
