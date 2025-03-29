@@ -253,19 +253,21 @@ export default function Home() {
         
         {/* SYSTEM HACKED message */}
         <motion.div
-          className="absolute top-8 left-0 w-full text-center"
+          className="absolute top-4 md:top-8 left-0 w-full text-center z-50"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="inline-block bg-red-500/20 border border-red-500 px-6 py-2">
-            <GlitchText text="SYSTEM HACKED" size="3xl" intensityLevel="high" color="#ff3333" />
+          <div className="inline-block bg-red-500/20 border border-red-500 px-4 md:px-6 py-1 md:py-2">
+            <div className="text-2xl md:text-3xl">
+              <GlitchText text="SYSTEM HACKED" size="3xl" intensityLevel="high" color="#ff3333" />
+            </div>
           </div>
         </motion.div>
         
         {/* Logo section */}
         <motion.div
-          className="w-full max-w-4xl mx-auto mb-12"
+          className="w-full max-w-4xl mx-auto mb-6 md:mb-12 mt-16 md:mt-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -274,8 +276,10 @@ export default function Home() {
           }}
         >
           <div className="flex flex-col items-center justify-center">
-            <InfoTechLogo size="lg" />
-            <div className="mt-6">
+            <div className="scale-75 md:scale-100">
+              <InfoTechLogo size="lg" />
+            </div>
+            <div className="mt-4 md:mt-6">
               <LogoReveal 
                 logoText="INFOTECH" 
                 subtitle="EVENT INCOMING"
@@ -286,7 +290,7 @@ export default function Home() {
         </motion.div>
         
         {/* Main teaser content with dramatic reveal */}
-        <div className="w-full max-w-6xl mx-auto grid gap-10 items-center z-10">
+        <div className="w-full max-w-6xl mx-auto grid gap-6 md:gap-10 items-center z-10 px-3 md:px-0">
           {/* Countdown */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -295,7 +299,7 @@ export default function Home() {
             className="w-full"
           >
             <motion.h2 
-              className="text-6xl font-bold text-center mb-10 gradient-text font-vt323 tracking-wider"
+              className="text-4xl md:text-6xl font-bold text-center mb-6 md:mb-10 gradient-text font-vt323 tracking-wider"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.5 }}
@@ -305,17 +309,17 @@ export default function Home() {
             
             {/* Target date display with glitch effect */}
             <motion.div
-              className="text-center mb-8"
+              className="text-center mb-6 md:mb-8"
               initial={{ opacity: 0, scale: 1.2 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 1.8 }}
             >
-              <div className="inline-block bg-black/50 px-8 py-3 border-2 border-green-500/70 relative overflow-hidden">
+              <div className="inline-block bg-black/50 px-4 md:px-8 py-2 md:py-3 border-2 border-green-500/70 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/10 to-transparent animate-pulse"></div>
-                <h3 className="text-4xl font-bold font-vt323 glitch tracking-[0.2em]" data-text="12-AVRIL-2025">
+                <h3 className="text-2xl md:text-4xl font-bold font-vt323 glitch tracking-[0.1em] md:tracking-[0.2em]" data-text="12-AVRIL-2025">
                   12-AVRIL-2025
                 </h3>
-                <div className="h-1 w-full bg-green-500/30 mt-2 relative">
+                <div className="h-1 w-full bg-green-500/30 mt-1 md:mt-2 relative">
                   <div className="absolute top-0 left-0 h-full w-1/3 bg-green-500 animate-[glowScan_2s_linear_infinite]"></div>
                 </div>
               </div>
@@ -324,7 +328,7 @@ export default function Home() {
             {/* Spotlight effect for countdown */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-radial from-green-500/10 via-transparent to-transparent rounded-3xl transform scale-150 -z-10"></div>
-              <div className="mx-auto max-w-4xl relative">
+              <div className="mx-auto max-w-full md:max-w-4xl relative">
                 <Countdown targetDate={eventDate} />
               </div>
             </div>
@@ -333,12 +337,12 @@ export default function Home() {
         
         {/* Simple footer */}
         <motion.footer 
-          className="w-full mt-16 text-center"
+          className="w-full mt-8 md:mt-16 text-center px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 3 }}
         >
-          <p className="text-sm text-green-500/60 font-vt323">
+          <p className="text-xs md:text-sm text-green-500/60 font-vt323">
             © {new Date().getFullYear()} InfoTech - Made by Raissouni Abdellah
           </p>
         </motion.footer>

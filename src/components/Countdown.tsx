@@ -92,17 +92,17 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   return (
     <div className="space-y-2">
       <motion.div 
-        className="countdown-wrapper"
+        className="countdown-wrapper flex flex-wrap justify-center"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
         <CountdownItem value={timeLeft.days} label="D" delay={0.1} isGlitching={isGlitching} />
-        <div className="text-green-500 self-center text-5xl font-vt323">:</div>
+        <div className="text-green-500 self-center text-3xl md:text-5xl font-vt323 mx-1 md:mx-0">:</div>
         <CountdownItem value={timeLeft.hours} label="H" delay={0.2} isGlitching={isGlitching} />
-        <div className="text-green-500 self-center text-5xl font-vt323">:</div>
+        <div className="text-green-500 self-center text-3xl md:text-5xl font-vt323 mx-1 md:mx-0">:</div>
         <CountdownItem value={timeLeft.minutes} label="M" delay={0.3} isGlitching={isGlitching} />
-        <div className={`text-green-500 self-center text-5xl font-vt323 ${isTicking ? 'text-green-300' : ''}`}>:</div>
+        <div className={`text-green-500 self-center text-3xl md:text-5xl font-vt323 mx-1 md:mx-0 ${isTicking ? 'text-green-300' : ''}`}>:</div>
         <CountdownItem value={timeLeft.seconds} label="S" delay={0.4} isGlitching={isGlitching} isTicking={isTicking} />
       </motion.div>
       
@@ -142,7 +142,7 @@ const CountdownItem: React.FC<CountdownItemProps> = ({ value, label, delay, isGl
   
   return (
     <motion.div 
-      className={`countdown-item relative overflow-hidden ${isHighlighted ? 'border-green-400 shadow-[0_0_30px_rgba(0,255,65,0.8)]' : ''}`}
+      className={`countdown-item relative overflow-hidden mx-1 my-2 md:mx-0 md:my-0 ${isHighlighted ? 'border-green-400 shadow-[0_0_30px_rgba(0,255,65,0.8)]' : ''}`}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay }}

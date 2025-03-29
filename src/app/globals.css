@@ -204,24 +204,40 @@ body {
 .countdown-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 0.5rem;
+  margin: 1rem 0;
   position: relative;
   padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
 }
 
 /* Pulsing outline for the entire countdown */
 .countdown-wrapper::before {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
   border: 2px solid rgba(0, 255, 65, 0.3);
   border-radius: 10px;
   animation: pulseOutline 3s infinite;
   z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .countdown-wrapper::before {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
 }
 
 @keyframes pulseOutline {
@@ -244,15 +260,24 @@ body {
   flex-direction: column;
   align-items: center;
   background: rgba(0, 20, 0, 0.8);
-  padding: 1.8rem 1.2rem;
+  padding: 0.8rem 0.6rem;
   border-radius: 0.5rem;
-  min-width: 8rem;
-  border: 3px solid rgba(0, 255, 65, 0.5);
+  min-width: 4.5rem;
+  border: 2px solid rgba(0, 255, 65, 0.5);
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 35px rgba(0, 255, 65, 0.4);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .countdown-item {
+    padding: 1.8rem 1.2rem;
+    min-width: 8rem;
+    border-width: 3px;
+    box-shadow: 0 0 35px rgba(0, 255, 65, 0.4);
+  }
 }
 
 .countdown-item:hover {
@@ -326,24 +351,39 @@ body {
 }
 
 .countdown-number {
-  font-size: 5.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: var(--terminal-green);
   font-family: 'VT323', 'Space Mono', monospace;
   letter-spacing: 1px;
-  text-shadow: 0 0 20px var(--terminal-green), 0 0 40px rgba(0, 255, 65, 0.6);
+  text-shadow: 0 0 10px var(--terminal-green), 0 0 20px rgba(0, 255, 65, 0.6);
   position: relative;
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  .countdown-number {
+    font-size: 5.5rem;
+    text-shadow: 0 0 20px var(--terminal-green), 0 0 40px rgba(0, 255, 65, 0.6);
+  }
+}
+
 .countdown-label {
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: rgba(0, 255, 65, 1);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: bold;
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
   text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+}
+
+@media (min-width: 768px) {
+  .countdown-label {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    margin-top: 0.8rem;
+  }
 }
 
 /* Custom animation classes */

@@ -99,21 +99,21 @@ const TerminalEffect: React.FC<TerminalEffectProps> = ({
   
   return (
     <motion.div 
-      className={`fixed ${positionClasses} w-80 h-48 bg-black/90 z-10 rounded-md overflow-hidden border border-green-500/40`}
+      className={`fixed ${positionClasses} w-56 h-36 md:w-80 md:h-48 bg-black/90 z-10 rounded-md overflow-hidden border border-green-500/40`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 0.9, y: 0 }}
       transition={{ duration: 0.5, delay: 3 }}
     >
-      <div className="h-5 bg-green-900/30 flex items-center px-2">
-        <div className="w-2 h-2 rounded-full bg-red-500 mr-1.5"></div>
-        <div className="w-2 h-2 rounded-full bg-yellow-500 mr-1.5"></div>
-        <div className="w-2 h-2 rounded-full bg-green-500 mr-1.5"></div>
-        <span className="text-xs text-green-400 font-mono">terminal@infotech:~</span>
+      <div className="h-4 md:h-5 bg-green-900/30 flex items-center px-2">
+        <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-red-500 mr-1"></div>
+        <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-yellow-500 mr-1"></div>
+        <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-green-500 mr-1"></div>
+        <span className="text-[10px] md:text-xs text-green-400 font-mono">terminal@infotech:~</span>
       </div>
       
-      <div className="p-2 font-mono text-xs text-green-400 h-[calc(100%-20px)] overflow-auto">
+      <div className="p-1 md:p-2 font-mono text-[10px] md:text-xs text-green-400 h-[calc(100%-16px)] md:h-[calc(100%-20px)] overflow-auto">
         {commandHistory.map((line, index) => (
-          <div key={index} className={line.startsWith('$') ? 'font-bold' : 'opacity-80 pl-2'}>
+          <div key={index} className={line.startsWith('$') ? 'font-bold' : 'opacity-80 pl-1 md:pl-2'}>
             {line}
           </div>
         ))}
@@ -121,7 +121,7 @@ const TerminalEffect: React.FC<TerminalEffectProps> = ({
         {isTyping && (
           <div className="font-bold flex">
             <span>$ {currentCommand}</span>
-            <span className="w-2 h-4 bg-green-500 ml-0.5 animate-pulse"></span>
+            <span className="w-1.5 md:w-2 h-3 md:h-4 bg-green-500 ml-0.5 animate-pulse"></span>
           </div>
         )}
       </div>
