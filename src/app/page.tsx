@@ -22,7 +22,7 @@ export default function Home() {
   
   // Event date - April 12, 2025
   // Using explicit date constructor to avoid timezone issues
-  const eventDate = new Date(2025, 4, 12, 0, 0, 0);
+  const eventDate = new Date(2025, 3, 12, 0, 0, 0);
   
   // For debugging and to ensure the date is correct
   useEffect(() => {
@@ -302,6 +302,24 @@ export default function Home() {
             >
               ACCESS GRANTED
             </motion.h2>
+            
+            {/* Target date display with glitch effect */}
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0, scale: 1.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 1.8 }}
+            >
+              <div className="inline-block bg-black/50 px-8 py-3 border-2 border-green-500/70 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/10 to-transparent animate-pulse"></div>
+                <h3 className="text-4xl font-bold font-vt323 glitch tracking-[0.2em]" data-text="12-AVRIL-2025">
+                  12-AVRIL-2025
+                </h3>
+                <div className="h-1 w-full bg-green-500/30 mt-2 relative">
+                  <div className="absolute top-0 left-0 h-full w-1/3 bg-green-500 animate-[glowScan_2s_linear_infinite]"></div>
+                </div>
+              </div>
+            </motion.div>
             
             {/* Spotlight effect for countdown */}
             <div className="relative">
